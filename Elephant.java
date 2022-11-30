@@ -15,18 +15,21 @@ public class Elephant extends Actor
     public void act()
     {
         if(Greenfoot.isKeyDown("d")){
-            move(2);
+            move(100);
         }
         if(Greenfoot.isKeyDown("a")){
-            move(-2);
+            move(-100);
         }
-        
-        eat();
+        if(isTouching(Apple.class))
+        {
+            eat();
+        }
     }
             
     public void eat(){
         removeTouching(Apple.class);
         MyWorld world = (MyWorld) getWorld();
+        
         world.spawnApple();
     }// Add your action code here.
     
