@@ -14,6 +14,13 @@ public class Elephant extends Actor
      */
     public void act()
     {
-        move(1);// Add your action code here.
+        if(Greenfoot.isKeyDown("d")){
+            move(2);
+        }
+        if(Greenfoot.isKeyDown("a")){
+            move(-2);
+        }
+            
+        }// Add your action code here.
     }
 }
