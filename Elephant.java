@@ -15,10 +15,10 @@ public class Elephant extends Actor
     public void act()
     {
         if(Greenfoot.isKeyDown("d")){
-            move(100);
+            move(20);
         }
         if(Greenfoot.isKeyDown("a")){
-            move(-100);
+            move(-20);
         }
         if(isTouching(Apple.class))
         {
