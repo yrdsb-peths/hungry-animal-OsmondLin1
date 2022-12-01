@@ -20,10 +20,17 @@ public class Elephant extends Actor
         if(Greenfoot.isKeyDown("a")){
             move(-20);
         }
+        if(Greenfoot.isKeyDown("w")){
+            setLocation(getX(), getY() - 20);
+        }
+        if(Greenfoot.isKeyDown("s")){
+            setLocation(getX(), getY() + 20);
+        }
         if(isTouching(Apple.class))
         {
             eat();
         }
+        
     }
             
     public void eat(){
