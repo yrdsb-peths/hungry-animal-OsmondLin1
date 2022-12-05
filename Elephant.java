@@ -36,7 +36,8 @@ public class Elephant extends Actor
     public void eat(){
         removeTouching(Apple.class);
         MyWorld world = (MyWorld) getWorld();
-        
+    
+        world.increaseScore();
         world.spawnApple();
     }// Add your action code here.
     

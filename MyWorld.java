@@ -8,19 +8,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
+    public int score = 0;
+    public Label scoreLabel;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1000, 400, 1); 
+        super(1000, 400, 1, false); 
         Elephant elephant = new Elephant();
         addObject(elephant, 200, 200);
         
+        scoreLabel = new Label(score, 80);
+        addObject(scoreLabel, 50, 50);
+        
         spawnApple();
+    }
+    
+    public void gameOver(){
+        Label gameOverLabel = new Label("Game Over", 100);
+        addObject(gameOverLabel, getWidth()/2, getHeight()/2);
+    }
+    public void increaseScore(){
+        score++;
+        scoreLabel.setValue(score);
     }
     
     public void spawnApple(){

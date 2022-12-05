@@ -1,11 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Apple here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Apple extends Actor
 {
     /**
@@ -16,6 +11,14 @@ public class Apple extends Actor
     {
         int x = getX();
         int y = getY() + 2;
-        setLocation(x, y);// Add your action code here.
+        setLocation(x, y);
+        
+        int bottomY = getWorld().getHeight();
+        if(getY() > bottomY) {
+            MyWorld world = (MyWorld) getWorld();
+            world.gameOver();
+            world.removeObject(this);
+        }// Add your action code here.
     }
 }
+
