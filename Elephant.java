@@ -13,7 +13,7 @@ public class Elephant extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     GreenfootSound sound;
-    
+    SimpleTimer animTimer = new SimpleTimer();
     GreenfootImage [] images = new GreenfootImage[8];
     
     public Elephant(){
@@ -24,7 +24,9 @@ public class Elephant extends Actor
             images[i].scale(100, 100);
         }
         
+        
         setImage(images[0]);
+        animTimer.mark();
         
         
     }
@@ -46,6 +48,18 @@ public class Elephant extends Actor
         {
             eat();
         }
+        animate();
+        
+    }
+    
+    int i = 0;
+    public void animate(){
+        if(animTimer.millisElapsed() > 100){
+            setImage(images[i]);
+            i = (i + 1) % images.length;
+            animTimer.mark();
+        }
+        
         
     }
             
