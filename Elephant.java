@@ -14,11 +14,19 @@ public class Elephant extends Actor
      */
     GreenfootSound sound;
     
+    GreenfootImage [] images = new GreenfootImage[8];
+    
     public Elephant(){
         sound = new GreenfootSound("sounds/elephantcub.mp3");
         
-        GreenfootImage image = getImage();
-        image.scale(100, 100);
+        for(int i = 0; i < images.length; i++){
+            images[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+            images[i].scale(100, 100);
+        }
+        
+        setImage(images[0]);
+        
+        
     }
     public void act()
     {
