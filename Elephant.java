@@ -16,6 +16,9 @@ public class Elephant extends Actor
     
     public Elephant(){
         sound = new GreenfootSound("sounds/elephantcub.mp3");
+        
+        GreenfootImage image = getImage();
+        image.scale(100, 100);
     }
     public void act()
     {
