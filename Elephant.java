@@ -15,6 +15,9 @@ public class Elephant extends Actor
     GreenfootSound sound;
     SimpleTimer animTimer = new SimpleTimer();
     GreenfootImage [] images = new GreenfootImage[8];
+    GreenfootImage [] imagesleft = new GreenfootImage[8];
+    
+    String facing = "right";
     
     public Elephant(){
         sound = new GreenfootSound("sounds/elephantcub.mp3");
@@ -23,6 +26,12 @@ public class Elephant extends Actor
             images[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
             images[i].scale(100, 100);
         } 
+        
+        for(int i = 0; i < imagesleft.length; i++){
+            imagesleft[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+            imagesleft[i].mirrorHorizontally();
+            imagesleft[i].scale(100, 100);
+        }
         
         
         setImage(images[0]);
@@ -34,9 +43,11 @@ public class Elephant extends Actor
     {
         if(Greenfoot.isKeyDown("d")){
             move(10);
+            facing = "right";
         }
         if(Greenfoot.isKeyDown("a")){
             move(-10);
+            facing = "left";
         }
         if(Greenfoot.isKeyDown("w")){
             setLocation(getX(), getY() - 10);
@@ -54,9 +65,17 @@ public class Elephant extends Actor
     
     int i = 0;
     public void animate(){
+        
         if(animTimer.millisElapsed() > 100){
-            setImage(images[i]);
-            i = (i + 1) % images.length;
+            if(facing.equals("right")){
+                setImage(images[i]);
+                i = (i + 1) % images.length;
+            }
+            else
+            {
+                setImage(imagesleft[i]);
+                i = (i + 1) % imagesleft.length;
+            }
             animTimer.mark();
         }
         
