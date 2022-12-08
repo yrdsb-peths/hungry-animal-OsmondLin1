@@ -17,8 +17,13 @@ public class TitleScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        Label titleLabel= new Label("Hungry Elephant", 80);
+        Label titleLabel = new Label("Hungry Elephant", 80);
+        
         addObject(titleLabel, getWidth()/2, getHeight()/2);
+        Label spaceLabel = new Label("Press SPACE to Start", 30);
+        
+        addObject(spaceLabel, getWidth()/2, 350);
+        
     }
     
     public void act(){
