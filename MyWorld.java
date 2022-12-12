@@ -9,18 +9,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     public int score = 0;
+    public int lives = 5;
     public Label scoreLabel;
+    public Label cupPong;
     int level = 1;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1000, 400, 1, false); 
+        super(700, 400, 1, false); 
         Elephant elephant = new Elephant();
         addObject(elephant, 200, 200);
         
-        scoreLabel = new Label(score, 80);
-        addObject(scoreLabel, 50, 50);
+        scoreLabel = new Label("Score:" + score, 65);
+        addObject(scoreLabel, 130, 50);
         
+        cupPong = new Label("Lives:" + lives, 50);
+        addObject(cupPong, 570, 50);
         spawnApple();
     }
     
@@ -30,12 +34,17 @@ public class MyWorld extends World
     }
     public void increaseScore(){
         score++;
-        scoreLabel.setValue(score);
+        scoreLabel.setValue("Score:" + score);
         
         if(score % 5 == 0)
         {
             level +=1;
         }
+    }
+    
+    public void decreaseLives(){
+        lives--;
+        cupPong.setValue("Lives:" + lives);
     }
     
     public void spawnApple(){

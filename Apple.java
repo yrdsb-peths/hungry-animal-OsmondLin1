@@ -8,17 +8,30 @@ public class Apple extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int speed = 1;
+    
     public void act()
     {
         int x = getX();
         int y = getY() + speed;
         setLocation(x, y);
-        
+        MyWorld world = (MyWorld) getWorld();
         int bottomY = getWorld().getHeight();
         if(getY() > bottomY) {
-            MyWorld world = (MyWorld) getWorld();
-            world.gameOver();
-            world.removeObject(this);
+            if(world.lives > 0)
+            {
+                world.removeObject(this);
+                world.decreaseLives();
+                world.spawnApple();
+            }
+            else
+            {
+                world.removeObject(this);
+                world.gameOver();
+            }
+                
+            
+            
+            
         }// Add your action code here.
     }
     
