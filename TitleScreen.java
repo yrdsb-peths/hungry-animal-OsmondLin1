@@ -42,10 +42,7 @@ public class TitleScreen extends World
     {
         Elephant elephant = new Elephant();
         addObject(elephant,520,77);
-        Label label = new Label("Use 'd' to move right and 'a' for left", 50);
-        addObject(label,436,312);
-        label.setLocation(281,295);
-        removeObject(label);
+        
         Label labela = new Label("Press d for right and a for left", 30);
         addObject(labela,300,288);
         
