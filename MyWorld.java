@@ -20,6 +20,8 @@ public class MyWorld extends World
         Elephant elephant = new Elephant();
         addObject(elephant, 200, 200);
         
+        
+        //Create score label to display the score
         scoreLabel = new Label("Score:" + score, 65);
         addObject(scoreLabel, 130, 50);
         
